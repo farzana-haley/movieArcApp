@@ -10,7 +10,20 @@ movieArc.collectInput = function() {};
 
 //Make ajax request with user input data
 
-movieArc.getInfo = function() {};
+movieArc.getInfo = function() {
+  $.ajax({
+    url: "http://www.omdbapi.com/?",
+    method: "GET",
+    dataType: "json",
+    data: {
+      apikey: movieArc.apiKey,
+      r: "json",
+      s: "harry"
+    }
+  }).then(function(result) {
+    console.log(result);
+  });
+};
 
 //display the data on the page
 
@@ -33,7 +46,9 @@ movieArc.displaySecondInfo = function() {};
 
 //start app
 
-movieArc.init = function() {};
+movieArc.init = function() {
+  movieArc.getInfo();
+};
 
 //doc ready
 
