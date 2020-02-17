@@ -23,10 +23,16 @@
   background-color: $resultBackground;
   margin: 30px auto;
   width: 100%;
+  justify-content: left;
+}
+
+.testContainer {
+  width: 50%;
+  display: flex;
 }
 
 .movieImage {
-  width: 15%;
+  width: 50%;
   height: 200px;
   padding: 20px;
 }
@@ -36,7 +42,11 @@
 }
 
 .movieText {
-  width: 75%;
+  width: 50%;
+}
+
+.movieDetails {
+  width: 50%;
 }
 
 //second display results
@@ -46,17 +56,27 @@
 //   justify-content: center;
 // }
 
-.secondResultContainer {
-  display: flex;
-}
+// .secondResultContainer {
+//   display: flex;
+// }
 
-.firstContainerDesign {
-  width: 50%;
-  .movieImage {
-    width: 40%;
-  }
-}
+// .firstContainerDesign {
+//   width: 50%;
+//   .movieImage {
+//     width: 40%;
+//   }
+// }
 
-.secondContainerDesign {
-  width: 50%;
-}
+// .secondContainerDesign {
+//   width: 50%;
+// }
+
+// .firstContainerDesign {
+//   .movieImage {
+//     width: 40%;
+//   }
+// }
+
+// .newWidth {
+//   width: 40%;
+// }

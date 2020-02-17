@@ -334,10 +334,20 @@ h1 {
   background-color: rgba(87, 96, 102, 0.5);
   margin: 30px auto;
   width: 100%;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+}
+
+.testContainer {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .movieImage {
-  width: 15%;
+  width: 50%;
   height: 200px;
   padding: 20px;
 }
@@ -347,23 +357,9 @@ h1 {
 }
 
 .movieText {
-  width: 75%;
-}
-
-.secondResultContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.firstContainerDesign {
   width: 50%;
 }
 
-.firstContainerDesign .movieImage {
-  width: 40%;
-}
-
-.secondContainerDesign {
+.movieDetails {
   width: 50%;
 }

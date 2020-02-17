@@ -33,14 +33,19 @@ movieArc.displayInfo = function(data) {
   data.forEach(function(movie) {
     $(".firstDisplayContainer").append(`
       <li class="resultsContainer">
-        <div class="movieImage">
-          <img src="${movie.Poster}" alt="">
-        </div>
-          <div class="movieText">
-            <h2 class="movieTitle">${movie.Title}</h2>
-            <p class="movieYear">${movie.Year}</p>
+        <div class="testContainer">
+          <div class="movieImage">
+            <img src="${movie.Poster}" alt="">
           </div>
+            <div class="movieText">
+              <h2 class="movieTitle">${movie.Title}</h2>
+              <p class="movieYear">${movie.Year}</p>
+            </div> 
+        </div>
       </li>
+
+
+      
     `);
   });
 };
@@ -63,7 +68,7 @@ movieArc.collectInput = function() {
 //Make second ajax request based on movie selected by user
 //  extract result which is an object
 //  call displaySecondInfo function for result parameter
-movieArc.getSecondInfo = function(parameter) {
+movieArc.getSecondInfo = function(parameter, currentMovie) {
   $.ajax({
     url: "http://www.omdbapi.com/?",
     method: "GET",
@@ -75,8 +80,8 @@ movieArc.getSecondInfo = function(parameter) {
       plot: "full"
     }
   }).then(function(result) {
-    console.log(result);
-    movieArc.displaySecondInfo(result);
+    $(".movieDetails").remove();
+    movieArc.displaySecondInfo(result, currentMovie);
   });
 };
 
@@ -87,10 +92,11 @@ movieArc.getSecondInfo = function(parameter) {
 
 movieArc.collectSecondInput = function() {
   $(".firstResults").on("click", "li", function() {
+    const currentMovie = this;
     const movieTitle = $(this)
       .find("h2")
       .text();
-    movieArc.getSecondInfo(movieTitle);
+    movieArc.getSecondInfo(movieTitle, currentMovie);
   });
 };
 
@@ -105,34 +111,28 @@ movieArc.collectSecondInput = function() {
 //  </div>
 //</div>
 
-movieArc.displaySecondInfo = function(data) {
-  $(".secondResults").html(`
-
-  <div class="poster">
-
-    <img src=${data.Poster}>
-  
-  </div>
-
-  <div class="movieDetails">
-     <div class="movieInfo">
-        <p> Rating: ${data.Ratings[0].Value} </p>
-        <p> Director: ${data.Director} </p>
-        <p> Actors: ${data.Actors} </p>
-        <p> Runtime: ${data.Runtime} </p>
-        <p> Genre: ${data.Genre} </p>
+movieArc.displaySecondInfo = function(data, currentMovie) {
+  $(currentMovie).append(`
+      <div class="movieDetails">
+        <div class="movieInfo">
+            <p> Rating: ${data.Ratings[0].Value} </p>
+            <p> Director: ${data.Director} </p>
+            <p> Actors: ${data.Actors} </p>
+            <p> Runtime: ${data.Runtime} </p>
+            <p> Genre: ${data.Genre} </p>
+          </div>
+          <div class="moviePlot">
+            <p> ${data.Plot}</p>
+          </div>
       </div>
-      <div class="moviePlot">
-        <p> ${data.Plot}</p>
-      </div>
-  </div>
-
   `);
+  // $(".movieImage", currentMovie).css("width", "40%");
+  // $(".mainContainer").addClass("secondResultContainer");
 
-  $(".mainContainer").addClass("secondResultContainer");
+  // $(".firstResults").addClass("firstContainerDesign");
+  // $(".secondResults").addClass("secondContainerDesign");
 
-  $(".firstResults").addClass("firstContainerDesign");
-  $(".secondResults").addClass("secondContainerDesign");
+  //$(".currentMovie", ".movieImage").css("width", "30%");
 
   // $(".poster").html(`<img src=${data.Poster}>`);
   // $(".movieInfo").html(`
