@@ -1,0 +1,22 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  height: 100%;
+  overflow-x: hidden;
+  color: $primaryFontColor;
+  background-color: $bodycolor;
+  font-family: $secondaryFont;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.wrapper {
+  max-width: 1150px;
+  margin: 0 auto;
+}

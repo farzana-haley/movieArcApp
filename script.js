@@ -1,10 +1,14 @@
 //create app movieArc to hold all methods
-
 const movieArc = {};
 
+//API key
 movieArc.apiKey = "a106247c";
 
-//Make ajax request with user input data
+//------------------------First User Search and data display----------------------
+
+//Make first ajax request based on user input
+//  extract result.Search which is an array
+//    call displayInfo function for result.Search array
 
 movieArc.getInfo = function(parameter) {
   $.ajax({
@@ -17,48 +21,48 @@ movieArc.getInfo = function(parameter) {
       s: parameter
     }
   }).then(function(result) {
+    $(".firstDisplayContainer").empty();
     movieArc.displayInfo(result.Search);
   });
 };
 
 //display the data on the page
+//     for each array element create an ul consisting an image, title and movie
 
 movieArc.displayInfo = function(data) {
   data.forEach(function(movie) {
-    $('ul').append(`
-      <li>
-        <div>
+    $(".firstDisplayContainer").append(`
+      <li class="resultsContainer">
+        <div class="movieImage">
           <img src="${movie.Poster}" alt="">
         </div>
-          <h2 class="movieTitle">${movie.Title}</h2>
-          <p class="movieYear">${movie.Year}</p>
+          <div class="movieText">
+            <h2 class="movieTitle">${movie.Title}</h2>
+            <p class="movieYear">${movie.Year}</p>
+          </div>
       </li>
     `);
-    // const poster = $('<img>').attr('src', movie.Poster);
-    // const title = $('<h2>').addClass('movieTitle').text(movie.Title);
-    // const year = $('<p>').addClass('movieYear').text(movie.Year);
-    // const movieItem = $('<div>').addClass('movieItem').append(poster, title, year);
-    // $('.firstResults').append(movieItem);
   });
-
-  
-
-
 };
-//collect user input
+
+//collect first user input:
+//  when the user search for a movie:
+//     the search term is stored in a variable named userInput
+//     getInfo function is called for userInput parameter
 
 movieArc.collectInput = function() {
-  $('.movieSearchForm').on('submit', function(event) {
+  $(".movieSearchForm").on("submit", function(event) {
     event.preventDefault();
-    const userInput = $('#movieSearch').val();
+    const userInput = $("#movieSearch").val();
     movieArc.getInfo(userInput);
-  })
+  });
 };
 
+//------------------------Second User Search and data display----------------------
 
-
-//----------------------------------------------
-//Make second ajax request with user input data for the second*** time
+//Make second ajax request based on movie selected by user
+//  extract result which is an object
+//  call displaySecondInfo function for result parameter
 movieArc.getSecondInfo = function(parameter) {
   $.ajax({
     url: "http://www.omdbapi.com/?",
@@ -76,42 +80,79 @@ movieArc.getSecondInfo = function(parameter) {
   });
 };
 
-//collect user input for the second*** time
+//collect second user input:
+//  when the user select a movie to know more details
+//     the title of the movie is stored in a variable named movieTitle
+//     getSecondInfo function is called for movieTitle parameter
 
 movieArc.collectSecondInput = function() {
-  $('.firstResults').on('click', 'li', function() {
-    const movieTitle = $(this).find('h2').text();
+  $(".firstResults").on("click", "li", function() {
+    const movieTitle = $(this)
+      .find("h2")
+      .text();
     movieArc.getSecondInfo(movieTitle);
   });
 };
 
-
-
 //display the data on the page
+//     from the parameter display movie poster, details, and plot
+
+//<div class="secondResults">
+// <div class="poster"></div>
+//  <div class="movieDetails">
+//   <div class="movieInfo"></div>
+//   <div class="moviePlot"></div>
+//  </div>
+//</div>
 
 movieArc.displaySecondInfo = function(data) {
-  $('.poster').html(`<img src=${data.Poster}>`);
-  $('.movieInfo').html(`
-    <p> Rating: ${data.Ratings[0].Value} </p>
-    <p> Director: ${data.Director} </p>
-    <p> Actors: ${data.Actors} </p>
-    <p> Runtime: ${data.Runtime} </p>
-    <p> Genre: ${data.Genre} </p>`
-  );
-  $('.moviePlot').html(`<p> ${data.Plot}`);
+  $(".secondResults").html(`
+
+  <div class="poster">
+
+    <img src=${data.Poster}>
+  
+  </div>
+
+  <div class="movieDetails">
+     <div class="movieInfo">
+        <p> Rating: ${data.Ratings[0].Value} </p>
+        <p> Director: ${data.Director} </p>
+        <p> Actors: ${data.Actors} </p>
+        <p> Runtime: ${data.Runtime} </p>
+        <p> Genre: ${data.Genre} </p>
+      </div>
+      <div class="moviePlot">
+        <p> ${data.Plot}</p>
+      </div>
+  </div>
+
+  `);
+
+  $(".mainContainer").addClass("secondResultContainer");
+
+  $(".firstResults").addClass("firstContainerDesign");
+  $(".secondResults").addClass("secondContainerDesign");
+
+  // $(".poster").html(`<img src=${data.Poster}>`);
+  // $(".movieInfo").html(`
+  //   <p> Rating: ${data.Ratings[0].Value} </p>
+  //   <p> Director: ${data.Director} </p>
+  //   <p> Actors: ${data.Actors} </p>
+  //   <p> Runtime: ${data.Runtime} </p>
+  //   <p> Genre: ${data.Genre} </p>`);
+  // $(".moviePlot").html(`<p> ${data.Plot}`);
 };
 
-//-----------------------------------------------
+//----------------------initializing the app-------------------------
 
 //start app
-
 movieArc.init = function() {
   movieArc.collectInput();
   movieArc.collectSecondInput();
 };
 
-//doc ready
-
+//document ready:trigger the init method
 $(function() {
   movieArc.init();
 });

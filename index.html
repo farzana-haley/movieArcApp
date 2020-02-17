@@ -9,36 +9,51 @@
       href="https://fonts.googleapis.com/css?family=Dancing+Script:400,600,700|Open+Sans:400,700i&display=swap"
       rel="stylesheet"
     />
-
     <!--  stylesheet-->
     <link rel="stylesheet" href="styles/style.css" />
   </head>
   <body>
     <!-- initial landing page -->
-    <h1>Movie Arc</h1>
-    <p>slogan</p>
+    <header>
+      <div class="wrapper header">
+        <h1>Movie Arc</h1>
+        <p class="slogan">Lorem Ipsum</p>
 
-    <form class="movieSearchForm">
-      <input type="text" id="movieSearch"/>
-    </form>
+        <!-- form for taking user input -->
+
+        <form class="movieSearchForm">
+          <input
+            type="text"
+            id="movieSearch"
+            placeholder="Search for your desired movie"
+          />
+        </form>
+      </div>
+    </header>
 
     <!-- second page -->
 
-    <div class="firstResults">
-      <ul>
-        <!-- search list of movies from keyword (10 results) -->
-      </ul>
-    </div>
+    <main>
+      <div class="mainContainer wrapper">
+        <div class="firstResults">
+          <ul class="firstDisplayContainer">
+            <!-- search list of movies from keyword (10 results) -->
+          </ul>
+        </div>
 
-    <!-- third page : movie details-->
+        <!-- third page : movie details-->
 
-    <div class="secondResults">
-      <div class="poster"></div>
-      <div class="movieDetails">
-        <div class="movieInfo"></div>
-        <div class="moviePlot"></div>
+        <div class="secondResults"></div>
+
+        <!-- <div class="secondResults">
+          <div class="poster"></div>
+          <div class="movieDetails">
+            <div class="movieInfo"></div>
+            <div class="moviePlot"></div>
+          </div>
+        </div> -->
       </div>
-    </div>
+    </main>
 
     <!-- jquery cdn -->
 

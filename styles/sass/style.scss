@@ -1,1 +1,62 @@
+@import "setup";
+@import "variables";
+@import "general";
+@import "header";
 
+// $primaryFontColor: white;
+// $bodycolor: black;
+
+// $primaryFont: "Dancing Script", cursive;
+// $secondaryFont: "Open Sans", sans-serif;
+
+// first display result--------------
+
+.firstDisplayContainer {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.resultsContainer {
+  display: flex;
+  background-color: $resultBackground;
+  margin: 30px auto;
+  width: 100%;
+}
+
+.movieImage {
+  width: 15%;
+  height: 200px;
+  padding: 20px;
+}
+
+.movieImage img {
+  height: 100%;
+}
+
+.movieText {
+  width: 75%;
+}
+
+//second display results
+
+// .mainContainer {
+//   display: flex;
+//   justify-content: center;
+// }
+
+.secondResultContainer {
+  display: flex;
+}
+
+.firstContainerDesign {
+  width: 50%;
+  .movieImage {
+    width: 40%;
+  }
+}
+
+.secondContainerDesign {
+  width: 50%;
+}
