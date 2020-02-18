@@ -4,16 +4,19 @@ html {
 
 body {
   font-size: 1.6rem;
-  height: 100%;
+  height: 100vh;
   overflow-x: hidden;
   color: $primaryFontColor;
-  background-color: $bodycolor;
+  background-image: url('assets/movieBackground.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
   font-family: $secondaryFont;
 }
 
 img {
   display: block;
-  max-width: 100%;
+  object-fit: contain;
+  width: 100%;
 }
 
 .wrapper {

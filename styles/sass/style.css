@@ -275,25 +275,25 @@ html {
 
 body {
   font-size: 1.6rem;
-  height: 100vh;
+  height: 100%;
   overflow-x: hidden;
-  color: #e9ebee;
-  background-image: url("assets/movieBackground.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  color: white;
+  background-color: black;
   font-family: "Open Sans", sans-serif;
 }
 
 img {
   display: block;
-  -o-object-fit: contain;
-     object-fit: contain;
-  width: 100%;
+  max-width: 100%;
 }
 
 .wrapper {
   max-width: 1150px;
   margin: 0 auto;
+}
+
+.header {
+  border-bottom: 3px solid yellow;
 }
 
 h1 {
@@ -304,7 +304,7 @@ h1 {
 }
 
 .slogan {
-  font-size: 2.2rem;
+  font-size: 3rem;
   text-align: center;
   margin: 20px 0 70px;
 }
@@ -334,20 +334,11 @@ h1 {
   background-color: rgba(87, 96, 102, 0.5);
   margin: 30px auto;
   width: 100%;
-  -webkit-box-pack: left;
-      -ms-flex-pack: left;
-          justify-content: left;
-}
-
-.testContainer {
-  width: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 .movieImage {
-  width: 300px;
+  width: 15%;
+  height: 200px;
   padding: 20px;
 }
 
@@ -356,84 +347,28 @@ h1 {
 }
 
 .movieText {
+  width: 75%;
+}
+
+.secondResultContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.firstContainerDesign {
   width: 50%;
-  font-size: 1.5rem;
-  padding-left: 10px;
-  line-height: 1.6;
 }
 
-.movieDetails {
+.firstContainerDesign .movieImage {
+  width: 40%;
+}
+
+.secondContainerDesign {
   width: 50%;
-  padding: 10px 15px 10px 15px;
-  line-height: 1.6;
 }
 
-@media (max-width: 1070px) {
-  .movieTitle {
-    margin-top: 40px;
-  }
-  .movieDetails {
-    margin-top: 32px;
-  }
+.poster {
+  width: 50%;
 }
-
-@media (max-width: 900px) {
-  .resultsContainer {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-  }
-  .testContainer {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    width: 90%;
-  }
-  .movieDetails {
-    width: 100%;
-    padding: 20px;
-    margin: 15px;
-  }
-}
-
-@media (max-width: 550px) {
-  .resultsContainer {
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  .testContainer {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    width: 100%;
-  }
-  .movieImage {
-    width: 90%;
-    padding: 20px 0;
-    margin: 0 auto;
-  }
-  .movieText {
-    width: 90%;
-    margin: 0 auto;
-    text-align: center;
-  }
-  .movieDetails p {
-    text-align: center;
-    padding: 0 20px;
-  }
-}
-
-@media (max-width: 400px) {
-  h1 {
-    font-size: 7rem;
-  }
-  .slogan {
-    font-size: 1.7rem;
-  }
-}
+/*# sourceMappingURL=style.css.map */

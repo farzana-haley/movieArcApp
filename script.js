@@ -43,9 +43,6 @@ movieArc.displayInfo = function(data) {
             </div> 
         </div>
       </li>
-
-
-      
     `);
   });
 };
@@ -59,7 +56,17 @@ movieArc.collectInput = function() {
   $(".movieSearchForm").on("submit", function(event) {
     event.preventDefault();
     const userInput = $("#movieSearch").val();
-    movieArc.getInfo(userInput);
+    // if user doesn't fill out input alert them
+    if (userInput == "") {
+      alert("Please enter your desired keyword!")
+      // when there is user input, call getInfo
+    } else {
+      movieArc.getInfo(userInput);
+      $('body').css("background-image", "none");
+      $("body").css("background-color", "black");
+    }
+    // clear out input field after search
+    $('input').val("");
   });
 };
 
@@ -93,23 +100,13 @@ movieArc.getSecondInfo = function(parameter, currentMovie) {
 movieArc.collectSecondInput = function() {
   $(".firstResults").on("click", "li", function() {
     const currentMovie = this;
-    const movieTitle = $(this)
-      .find("h2")
-      .text();
+    const movieTitle = $(this).find("h2").text();
     movieArc.getSecondInfo(movieTitle, currentMovie);
   });
 };
 
 //display the data on the page
 //     from the parameter display movie poster, details, and plot
-
-//<div class="secondResults">
-// <div class="poster"></div>
-//  <div class="movieDetails">
-//   <div class="movieInfo"></div>
-//   <div class="moviePlot"></div>
-//  </div>
-//</div>
 
 movieArc.displaySecondInfo = function(data, currentMovie) {
   $(currentMovie).append(`
@@ -126,23 +123,18 @@ movieArc.displaySecondInfo = function(data, currentMovie) {
           </div>
       </div>
   `);
-  // $(".movieImage", currentMovie).css("width", "40%");
-  // $(".mainContainer").addClass("secondResultContainer");
-
-  // $(".firstResults").addClass("firstContainerDesign");
-  // $(".secondResults").addClass("secondContainerDesign");
-
-  //$(".currentMovie", ".movieImage").css("width", "30%");
-
-  // $(".poster").html(`<img src=${data.Poster}>`);
-  // $(".movieInfo").html(`
-  //   <p> Rating: ${data.Ratings[0].Value} </p>
-  //   <p> Director: ${data.Director} </p>
-  //   <p> Actors: ${data.Actors} </p>
-  //   <p> Runtime: ${data.Runtime} </p>
-  //   <p> Genre: ${data.Genre} </p>`);
-  // $(".moviePlot").html(`<p> ${data.Plot}`);
 };
+
+// change input placeholder text when px width is 550px
+movieArc.changeInputText = function() {
+  if ($(window).width() < 550 ) {
+    console.log('550')
+    $('input').attr('placeholder','Search...');
+  } else if ($(window).width() > 551) {
+    console.log('bigger!')
+    $("input").attr("placeholder", "Search your desired movie...");
+  }
+}
 
 //----------------------initializing the app-------------------------
 
@@ -150,6 +142,7 @@ movieArc.displaySecondInfo = function(data, currentMovie) {
 movieArc.init = function() {
   movieArc.collectInput();
   movieArc.collectSecondInput();
+  movieArc.changeInputText();
 };
 
 //document ready:trigger the init method

@@ -2,6 +2,7 @@
 @import "variables";
 @import "general";
 @import "header";
+@import "searchResults";
 
 // $primaryFontColor: white;
 // $bodycolor: black;
@@ -9,74 +10,81 @@
 // $primaryFont: "Dancing Script", cursive;
 // $secondaryFont: "Open Sans", sans-serif;
 
-// first display result--------------
+@media (max-width: 1070px) {
+  .movieTitle {
+    margin-top: 40px;
+  }
 
-.firstDisplayContainer {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  width: 100%;
+  .movieDetails {
+    margin-top: 32px;
+  }
+
 }
 
-.resultsContainer {
-  display: flex;
-  background-color: $resultBackground;
-  margin: 30px auto;
-  width: 100%;
-  justify-content: left;
+@media (max-width: 900px) {
+  .resultsContainer {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .testContainer {
+    justify-content: center;
+    width: 90%;
+  }
+
+  .movieDetails {
+    width: 100%;
+    padding: 20px;
+    margin: 15px;
+  }
+
+  // .moviePlot {
+  //   width: 90%;
+  // }
 }
 
-.testContainer {
-  width: 50%;
-  display: flex;
+@media (max-width: 550px) {
+  
+  .resultsContainer {
+    align-items: center;
+  }
+  .testContainer {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .movieImage {
+    width: 90%;
+    padding: 20px 0;
+    margin: 0 auto;
+  }
+
+  .movieText {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .movieDetails p{
+    text-align: center;
+    padding: 0 20px;
+  }
+
 }
 
-.movieImage {
-  width: 50%;
-  height: 200px;
-  padding: 20px;
+
+@media (max-width: 400px) {
+  h1 {
+    font-size: 7rem;
+  }
+
+  .slogan {
+    font-size: 1.7rem;
+  }
 }
 
-.movieImage img {
-  height: 100%;
-}
 
-.movieText {
-  width: 50%;
-}
 
-.movieDetails {
-  width: 50%;
-}
 
-//second display results
 
-// .mainContainer {
-//   display: flex;
-//   justify-content: center;
-// }
 
-// .secondResultContainer {
-//   display: flex;
-// }
-
-// .firstContainerDesign {
-//   width: 50%;
-//   .movieImage {
-//     width: 40%;
-//   }
-// }
-
-// .secondContainerDesign {
-//   width: 50%;
-// }
-
-// .firstContainerDesign {
-//   .movieImage {
-//     width: 40%;
-//   }
-// }
-
-// .newWidth {
-//   width: 40%;
-// }
