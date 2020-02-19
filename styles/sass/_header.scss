@@ -4,12 +4,19 @@ h1 {
   text-align: center;
   margin: 0;
   padding: 40px;
+  text-shadow: 3px 3px 8px #FF0000;
+  transition: all 0.7s;
 }
 
 .slogan {
   font-size: 2.2rem;
   text-align: center;
   margin: 20px 0 70px;
+}
+
+.slogan:hover {
+  letter-spacing: 5px;
+  transition: all 0.7s;
 }
 
 //form container

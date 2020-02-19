@@ -32,17 +32,20 @@ movieArc.getInfo = function(parameter) {
 movieArc.displayInfo = function(data) {
   data.forEach(function(movie) {
     $(".firstDisplayContainer").append(`
-      <li class="resultsContainer">
-        <div class="testContainer">
-          <div class="movieImage">
-            <img src="${movie.Poster}" alt="">
+        <li class="resultsContainer">
+          <button>
+          <div class="testContainer">
+            <div class="movieImage">
+              <img src="${movie.Poster}" alt="">
+            </div>
+              <div class="movieText">
+                <h2 class="movieTitle">${movie.Title}</h2>
+                <p class="movieYear">${movie.Year}</p>
+                <p class="overlayText">Click for more info</p>
+              </div> 
           </div>
-            <div class="movieText">
-              <h2 class="movieTitle">${movie.Title}</h2>
-              <p class="movieYear">${movie.Year}</p>
-            </div> 
-        </div>
-      </li>
+          </button>
+        </li>
     `);
   });
 };

@@ -302,12 +302,21 @@ h1 {
   text-align: center;
   margin: 0;
   padding: 40px;
+  text-shadow: 3px 3px 8px #FF0000;
+  -webkit-transition: all 0.7s;
+  transition: all 0.7s;
 }
 
 .slogan {
   font-size: 2.2rem;
   text-align: center;
   margin: 20px 0 70px;
+}
+
+.slogan:hover {
+  letter-spacing: 5px;
+  -webkit-transition: all 0.7s;
+  transition: all 0.7s;
 }
 
 .movieSearchForm {
@@ -338,10 +347,20 @@ h1 {
   -webkit-box-pack: left;
       -ms-flex-pack: left;
           justify-content: left;
+  -webkit-transition: all 0.7s;
+  transition: all 0.7s;
+  position: relative;
+}
+
+.resultsContainer:hover {
+  -webkit-box-shadow: 18px 13px 18px -4px darkred;
+          box-shadow: 18px 13px 18px -4px darkred;
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
 }
 
 .testContainer {
-  width: 50%;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -349,7 +368,7 @@ h1 {
 
 .movieImage {
   width: 300px;
-  padding: 20px;
+  padding: 30px;
 }
 
 .movieImage img {
@@ -367,6 +386,33 @@ h1 {
   width: 50%;
   padding: 10px 15px 10px 15px;
   line-height: 1.6;
+}
+
+button {
+  padding: 0;
+  margin: 0;
+  background-color: rgba(87, 96, 102, 0);
+  border: none;
+  color: #e9ebee;
+  text-align: left;
+}
+
+.overlayText {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: right;
+  font-size: 2rem;
+  opacity: 0;
+  padding-right: 50px;
+  -webkit-transition: all 0.7s;
+  transition: all 0.7s;
+}
+
+.overlayText:hover, .overlayText:active {
+  opacity: 1;
 }
 
 @media (max-width: 1070px) {
