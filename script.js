@@ -35,7 +35,7 @@ movieArc.displayInfo = function(data) {
     if (movie.Poster === "N/A") {
       $(".firstDisplayContainer").append(`
         <li class="resultsContainer">
-          <button>
+          <button class="accessibility">
           <div class="movieDetailContainer">
             <div class="movieImage">
               <p class="notAvailable">Sorry, No image is available</p>
@@ -53,7 +53,7 @@ movieArc.displayInfo = function(data) {
     } else {
       $(".firstDisplayContainer").append(`
         <li class="resultsContainer">
-          <button>
+          <button class="accessibility">
           <div class="movieDetailContainer">
             <div class="movieImage">
               <img src="${movie.Poster}" alt="Image of movie poster for ${movie.Title}"></img>
