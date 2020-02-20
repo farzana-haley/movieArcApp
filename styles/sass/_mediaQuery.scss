@@ -1,0 +1,102 @@
+@media (max-width: 1070px) {
+  .movieTitle {
+    margin-top: 40px;
+  }
+
+  .movieDetails {
+    margin-top: 32px;
+  }
+}
+
+@media (max-width: 900px) {
+  .resultsContainer {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .movieDetailContainer {
+    justify-content: center;
+    width: 90%;
+  }
+
+  .movieDetails {
+    width: 100%;
+    padding: 20px;
+    margin: 15px;
+  }
+
+  .notAvailable {
+    text-align: left;
+  }
+
+  .moviePlot p {
+    width: 90%;
+  }
+}
+
+@media (max-width: 550px) {
+  .resultsContainer {
+    align-items: center;
+  }
+  .movieDetailContainer {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .movieImage {
+    width: 90%;
+    padding: 20px 0;
+    margin: 0 auto;
+  }
+
+  .movieText {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .movieDetails p {
+    text-align: center;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 430px) {
+  .overlayText .expand {
+    position: relative;
+    left: 30px;
+    font-size: 15px;
+  }
+
+  .overlayText .expand .fas {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 400px) {
+  h1 {
+    font-size: 7rem;
+  }
+
+  .slogan {
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .overlayText .expand {
+    top: -10px;
+    left: 35px;
+  }
+}
+
+@media (max-width: 320px) {
+  .overlayText .expand {
+    top: -17px;
+    left: 40px;
+  }
+
+  .overlayText .expand .fas {
+    font-size: 12px;
+  }
+}

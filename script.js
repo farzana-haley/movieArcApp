@@ -31,22 +31,43 @@ movieArc.getInfo = function(parameter) {
 
 movieArc.displayInfo = function(data) {
   data.forEach(function(movie) {
-    $(".firstDisplayContainer").append(`
+    //if movie picture is not available
+    if (movie.Poster === "N/A") {
+      $(".firstDisplayContainer").append(`
         <li class="resultsContainer">
           <button>
-          <div class="testContainer">
+          <div class="movieDetailContainer">
             <div class="movieImage">
-              <img src="${movie.Poster}" alt="">
+              <p class="notAvailable">Sorry, No image is available</p>
             </div>
               <div class="movieText">
                 <h2 class="movieTitle">${movie.Title}</h2>
                 <p class="movieYear">${movie.Year}</p>
-                <p class="overlayText">Click for more info</p>
+                <p class="overlayText"><a class="expand"><i class="fas fa-expand-alt"></i></a></p>
+                
               </div> 
           </div>
           </button>
         </li>
     `);
+    } else {
+      $(".firstDisplayContainer").append(`
+        <li class="resultsContainer">
+          <button>
+          <div class="movieDetailContainer">
+            <div class="movieImage">
+              <img src="${movie.Poster}" alt="Image of movie poster for ${movie.Title}"></img>
+            </div>
+              <div class="movieText">
+                <h2 class="movieTitle">${movie.Title}</h2>
+                <p class="movieYear">${movie.Year}</p>
+                <p class="overlayText"><a class="expand"><i class="fas fa-expand-alt"></i></a></p>
+              </div> 
+          </div>
+          </button>
+        </li>
+    `);
+    }
   });
 };
 
@@ -61,15 +82,15 @@ movieArc.collectInput = function() {
     const userInput = $("#movieSearch").val();
     // if user doesn't fill out input alert them
     if (userInput == "") {
-      alert("Please enter your desired keyword!")
+      alert("Please enter your desired keyword!");
       // when there is user input, call getInfo
     } else {
       movieArc.getInfo(userInput);
-      $('body').css("background-image", "none");
+      $("body").css("background-image", "none");
       $("body").css("background-color", "black");
     }
     // clear out input field after search
-    $('input').val("");
+    $("input").val("");
   });
 };
 
@@ -77,7 +98,7 @@ movieArc.collectInput = function() {
 
 //Make second ajax request based on movie selected by user
 //  extract result which is an object
-//  call displaySecondInfo function for result parameter
+//  call displaySecondInfo function for result parameter and the current movie
 movieArc.getSecondInfo = function(parameter, currentMovie) {
   $.ajax({
     url: "http://www.omdbapi.com/?",
@@ -103,7 +124,9 @@ movieArc.getSecondInfo = function(parameter, currentMovie) {
 movieArc.collectSecondInput = function() {
   $(".firstResults").on("click", "li", function() {
     const currentMovie = this;
-    const movieTitle = $(this).find("h2").text();
+    const movieTitle = $(this)
+      .find("h2")
+      .text();
     movieArc.getSecondInfo(movieTitle, currentMovie);
   });
 };
@@ -122,7 +145,7 @@ movieArc.displaySecondInfo = function(data, currentMovie) {
             <p> Genre: ${data.Genre} </p>
           </div>
           <div class="moviePlot">
-            <p> ${data.Plot}</p>
+            <p> Plot: ${data.Plot}</p>
           </div>
       </div>
   `);
@@ -130,14 +153,14 @@ movieArc.displaySecondInfo = function(data, currentMovie) {
 
 // change input placeholder text when px width is 550px
 movieArc.changeInputText = function() {
-  if ($(window).width() < 550 ) {
-    console.log('550')
-    $('input').attr('placeholder','Search...');
+  if ($(window).width() < 550) {
+    console.log("550");
+    $("input").attr("placeholder", "Search...");
   } else if ($(window).width() > 551) {
-    console.log('bigger!')
+    console.log("bigger!");
     $("input").attr("placeholder", "Search your desired movie...");
   }
-}
+};
 
 //----------------------initializing the app-------------------------
 

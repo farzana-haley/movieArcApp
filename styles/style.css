@@ -302,7 +302,7 @@ h1 {
   text-align: center;
   margin: 0;
   padding: 40px;
-  text-shadow: 3px 3px 8px #FF0000;
+  text-shadow: 3px 3px 8px #ff0000;
   -webkit-transition: all 0.7s;
   transition: all 0.7s;
 }
@@ -328,6 +328,7 @@ h1 {
   text-align: center;
   padding: 10px;
   width: 40%;
+  border-radius: 10px;
 }
 
 .firstDisplayContainer {
@@ -359,7 +360,7 @@ h1 {
           transform: scale(1.01);
 }
 
-.testContainer {
+.movieDetailContainer {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -411,8 +412,19 @@ button {
   transition: all 0.7s;
 }
 
-.overlayText:hover, .overlayText:active {
+.overlayText:hover,
+.overlayText:active {
   opacity: 1;
+}
+
+.overlayText .expand {
+  color: white;
+  opacity: 1;
+  width: 40px;
+}
+
+.notAvailable {
+  text-align: center;
 }
 
 @media (max-width: 1070px) {
@@ -434,7 +446,7 @@ button {
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
-  .testContainer {
+  .movieDetailContainer {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
@@ -445,6 +457,12 @@ button {
     padding: 20px;
     margin: 15px;
   }
+  .notAvailable {
+    text-align: left;
+  }
+  .moviePlot p {
+    width: 90%;
+  }
 }
 
 @media (max-width: 550px) {
@@ -453,7 +471,7 @@ button {
         -ms-flex-align: center;
             align-items: center;
   }
-  .testContainer {
+  .movieDetailContainer {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -476,11 +494,39 @@ button {
   }
 }
 
+@media (max-width: 430px) {
+  .overlayText .expand {
+    position: relative;
+    left: 30px;
+    font-size: 15px;
+  }
+  .overlayText .expand .fas {
+    font-size: 15px;
+  }
+}
+
 @media (max-width: 400px) {
   h1 {
     font-size: 7rem;
   }
   .slogan {
     font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .overlayText .expand {
+    top: -10px;
+    left: 35px;
+  }
+}
+
+@media (max-width: 320px) {
+  .overlayText .expand {
+    top: -17px;
+    left: 40px;
+  }
+  .overlayText .expand .fas {
+    font-size: 12px;
   }
 }
