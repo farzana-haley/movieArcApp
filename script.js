@@ -14,10 +14,9 @@ movieArc.getInfo = function(parameter) {
   $.ajax({
     url: "http://www.omdbapi.com/?",
     method: "GET",
-    dataType: "json",
+    dataType: "jsonp",
     data: {
       apikey: movieArc.apiKey,
-      r: "json",
       s: parameter
     }
   }).then(function(result) {
