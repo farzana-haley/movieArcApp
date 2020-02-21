@@ -101,7 +101,7 @@ movieArc.collectInput = function() {
 //  call displaySecondInfo function for result parameter and the current movie
 movieArc.getSecondInfo = function(parameter, currentMovie) {
   $.ajax({
-    url: "http://www.omdbapi.com/?",
+    url: "https://www.omdbapi.com/?",
     method: "GET",
     dataType: "json",
     data: {
