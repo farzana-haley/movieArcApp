@@ -12,11 +12,12 @@ movieArc.apiKey = "a106247c";
 
 movieArc.getInfo = function(parameter) {
   $.ajax({
-    url: "http://www.omdbapi.com/?",
+    url: "https://www.omdbapi.com/?",
     method: "GET",
-    dataType: "jsonp",
+    dataType: "json",
     data: {
       apikey: movieArc.apiKey,
+      r: "json",
       s: parameter
     }
   }).then(function(result) {
